@@ -47,7 +47,7 @@ Ost[:Mailer] << {user_id: 42, subject: 'Hello', body: 'World'}.to_json
 class Mailer < Ost::JsonJob
   def perform(data)
     user = User.find(data['id'])
-    Message.deliver(user: user, subject: data['subject'], body: data['body'])
+    Mail.deliver(user: user, subject: data['subject'], body: data['body'])
   end
 end
 ```
