@@ -1,18 +1,18 @@
 require "cutest"
 require_relative "../lib/ost/job"
 
-class RegularJob < Ost::Job
+class PlainJob < Ost::Job
   def perform(data)
-    $regular_data ||= []
-    $regular_data << data
+    $plain_data ||= []
+    $plain_data << data
   end
 end
 
 test "deserializing the data for a plain job" do
-  RegularJob.new.call(1)
-  RegularJob.new.call(22)
-  RegularJob.new.call(333)
-  assert_equal [1, 22, 333], $regular_data
+  PlainJob.new.call(1)
+  PlainJob.new.call(22)
+  PlainJob.new.call(333)
+  assert_equal [1, 22, 333], $plain_data
 end
 
 class JsonJob < Ost::JsonJob
