@@ -1,7 +1,8 @@
 Ost::Job
 ================
 
-Job base classes for [Ost](https://github.com/soveran/ost)
+Job base classes for [Ost](https://github.com/soveran/ost) and
+[ost-bin](https://github.com/djanowski/ost-bin).
 
 Description
 -----------
