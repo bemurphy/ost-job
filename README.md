@@ -31,7 +31,7 @@ For a regular job that is passed a single id or string:
 ```ruby
 class Plain < Ost::Job
   def perform(user_id)
-    user = User.find(id)
+    user = User.find(user_id)
     # do something with user
   end
 end
@@ -46,7 +46,7 @@ Ost[:Mailer] << {user_id: 42, subject: 'Hello', body: 'World'}.to_json
 # Declare your Job Class
 class Mailer < Ost::JsonJob
   def perform(data)
-    user = User.find(data['id'])
+    user = User.find(data['user_id'])
     Mail.deliver(user: user, subject: data['subject'], body: data['body'])
   end
 end
