@@ -17,7 +17,7 @@ class that plays nice with `ost-bin`.
 Installation
 ------------
 
-    $ gem install ost_job
+    $ gem install ost-job
 
 Usage
 -----

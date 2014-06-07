@@ -1,11 +1,11 @@
 Gem::Specification.new do |s|
-  s.name        = "ost_job"
+  s.name        = "ost-job"
   s.version     = "0.0.1"
   s.summary     = "Job base classes for Ost"
   s.description = s.summary
   s.authors     = ["Brendon Murphy"]
   s.email       = ["xternal1+github@gmail.com"]
-  s.homepage    = "http://github.com/bemurphy/ost_job"
+  s.homepage    = "http://github.com/bemurphy/ost-job"
   s.license     = "MIT"
 
   s.files = Dir[
