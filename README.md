@@ -43,7 +43,7 @@ If you want to pass richer data to your job, inherit `Ost::JsonJob`
 # Enqueue the job
 Ost[:Mailer] << {user_id: 42, subject: 'Hello', body: 'World'}.to_json
 
-# And your Job Class
+# Declare your Job Class
 class Mailer < Ost::JsonJob
   def perform(data)
     user = User.find(data['id'])
