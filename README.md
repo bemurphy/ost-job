@@ -1,5 +1,5 @@
 Ost::Job
-================
+========
 
 Job base classes for [Ost](https://github.com/soveran/ost) and
 [ost-bin](https://github.com/djanowski/ost-bin).
@@ -7,7 +7,12 @@ Job base classes for [Ost](https://github.com/soveran/ost) and
 Description
 -----------
 
-TODO
+Ost provides simple, lightweight background job functionality.  By
+default, it assumes you are passing very primative ids like a numeric
+user id to the queue.
+
+`Ost::Job` and `Ost::JsonJob` provide a super thin interface to a worker
+interface that plays nice with `ost-bin`.
 
 Installation
 ------------
@@ -17,4 +22,32 @@ Installation
 Usage
 -----
 
-TODO
+Setup your `Ostfile` as specified by ost-bin.
+
+Declare a job class with a `#perform` instance method.
+
+For a regular job that is passed a single id or string:
+
+```ruby
+class Plain < Ost::Job
+  def perform(user_id)
+    user = User.find(id)
+    # do something with user
+  end
+end
+```
+
+If you want to pass richer data to your job, inherit `Ost::JsonJob`
+
+```ruby
+# Enqueue the job
+Ost[:Mailer] << {user_id: 42, subject: 'Hello', body: 'World'}.to_json
+
+# And your Job Class
+class Mailer < Ost::JsonJob
+  def perform(data)
+    user = User.find(data['id'])
+    Message.deliver(user: user, subject: data['subject'], body: data['body'])
+  end
+end
+```
