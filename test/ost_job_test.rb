@@ -1,5 +1,5 @@
 require "cutest"
-require_relative "../lib/ost_job"
+require_relative "../lib/ost/job"
 
 class RegularJob < Ost::Job
   def perform(data)
