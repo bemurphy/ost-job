@@ -11,8 +11,8 @@ Ost provides simple, lightweight background job functionality.  By
 default, it assumes you are passing very primative ids like a numeric
 user id to the queue.
 
-`Ost::Job` and `Ost::JsonJob` provide a super thin interface to a worker
-interface that plays nice with `ost-bin`.
+`Ost::Job` and `Ost::JsonJob` provide a super thin interface to a job
+class that plays nice with `ost-bin`.
 
 Installation
 ------------
